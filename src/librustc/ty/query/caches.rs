@@ -5,9 +5,9 @@ use crate::ty::TyCtxt;
 
 use rustc_data_structures::fx::FxHashMap;
 use rustc_data_structures::sharded::Sharded;
-use rustc_hir::def_id::{DefId, DefIndex, LOCAL_CRATE};
-use rustc_index::vec::IndexVec;
-use std::cell::RefCell;
+//use rustc_hir::def_id::{DefId, DefIndex, LOCAL_CRATE};
+//use rustc_index::vec::IndexVec;
+//use std::cell::RefCell;
 use std::default::Default;
 use std::hash::Hash;
 use std::marker::PhantomData;
@@ -119,7 +119,7 @@ impl<D, K: Eq + Hash, V: Clone> QueryCache<K, V> for DefaultCache<D> {
         f(Box::new(results))
     }
 }
-
+/*
 #[cfg(parallel_compiler)]
 pub type LocalDenseDefIdCacheSelector<V> = DefaultCache<V>;
 #[cfg(not(parallel_compiler))]
@@ -204,3 +204,4 @@ impl<V: Clone> QueryCache<DefId, V> for LocalDenseDefIdCache<V> {
         })
     }
 }
+*/
