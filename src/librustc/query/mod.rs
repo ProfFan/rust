@@ -585,7 +585,8 @@ rustc_queries! {
             cache_on_disk_if { true }
         }
 
-        query def_kind(_: DefId) -> Option<DefKind> {}
+        query def_kind(_: DefId) -> Option<DefKind> {
+        }
         query def_span(_: DefId) -> Span {
             // FIXME(mw): DefSpans are not really inputs since they are derived from
             // HIR. But at the moment HIR hashing still contains some hacks that allow
@@ -594,7 +595,8 @@ rustc_queries! {
             // regardless of HIR hashing.
             eval_always
         }
-        query lookup_stability(_: DefId) -> Option<&'tcx attr::Stability> {}
+        query lookup_stability(_: DefId) -> Option<&'tcx attr::Stability> {
+        }
         query lookup_const_stability(_: DefId) -> Option<&'tcx attr::ConstStability> {}
         query lookup_deprecation_entry(_: DefId) -> Option<DeprecationEntry> {}
         query item_attrs(_: DefId) -> Lrc<[ast::Attribute]> {}
@@ -663,7 +665,8 @@ rustc_queries! {
         /// associated types. This is almost always what you want,
         /// unless you are doing MIR optimizations, in which case you
         /// might want to use `reveal_all()` method to change modes.
-        query param_env(_: DefId) -> ty::ParamEnv<'tcx> {}
+        query param_env(_: DefId) -> ty::ParamEnv<'tcx> {
+        }
 
         /// Trait selection queries. These are best used by invoking `ty.is_copy_modulo_regions()`,
         /// `ty.is_copy()`, etc, since that will prune the environment where possible.
